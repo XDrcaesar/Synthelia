@@ -3,149 +3,651 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Synova - نصائح طبية</title>
+    <title>Synthelia - الذكاء الصحي المتطور</title>
+    
+    <!-- الروابط الأساسية -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=El+Messiri:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- الأيقونة -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏥</text></svg>">
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Synthelia - منصة الذكاء الاصطناعي للرعاية الصحية والتوعية الطبية">
+    <meta name="theme-color" content="#0A8C8A">
+    <meta name="author" content="Synthelia Team">
 </head>
 <body>
-    <!-- الشريط العلوي -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">
-                <i class="fas fa-heartbeat"></i>
-                <span>Synova</span>
-            </div>
-            <button class="menu-btn" id="menuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </nav>
-
-    <!-- القائمة الجانبية -->
-    <div class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <h3><i class="fas fa-sliders-h"></i> الإعدادات</h3>
-            <button class="close-btn" id="closeBtn">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="sidebar-content">
-            <div class="setting">
-                <label>
-                    <input type="checkbox" id="soundToggle" checked>
-                    <span>الصوت</span>
-                </label>
-            </div>
-            <div class="setting">
-                <label>
-                    <input type="checkbox" id="notificationsToggle" checked>
-                    <span>الإشعارات</span>
-                </label>
-            </div>
-            <button class="language-btn" id="languageBtn">
-                <i class="fas fa-language"></i>
-                <span>العربية / English</span>
-            </button>
+    <!-- خلفية طبية متطورة -->
+    <div class="medical-background">
+        <div class="scan-lines"></div>
+        <div class="pulse-grid"></div>
+        <div class="floating-dna">
+            <div class="dna-strand"></div>
         </div>
     </div>
 
-    <!-- المحتوى الرئيسي -->
-    <main class="main-content">
-        <div class="container">
-            <div class="welcome-section">
-                <h1>نصائح طبية يومية</h1>
-                <p class="subtitle">صحتك تهمنا في Synova</p>
-            </div>
+    <!-- شريط التنقل الذكي -->
+    <header class="medical-header">
+        <div class="header-container">
+            <!-- زر القائمة على اليسار -->
+            <button class="nav-trigger" id="navTrigger">
+                <div class="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <span class="menu-label">القائمة</span>
+            </button>
 
-            <!-- بطاقة النصيحة -->
-            <div class="advice-card" id="adviceCard">
-                <div class="card-header">
-                    <span class="category" id="adviceCategory">الصحة العامة</span>
-                    <div class="card-actions">
-                        <button class="action-btn" id="favBtn" title="مفضل">
-                            <i class="far fa-star"></i>
-                        </button>
-                        <button class="action-btn" id="shareBtn" title="مشاركة">
-                            <i class="fas fa-share-alt"></i>
-                        </button>
+            <!-- اللوجو والعلامة التجارية -->
+            <div class="brand-identity">
+                <div class="logo-symbol">
+                    <div class="logo-inner">
+                        <i class="fas fa-dna"></i>
                     </div>
                 </div>
-                <div class="card-body">
-                    <div class="advice-icon">
-                        <i class="fas fa-heartbeat"></i>
-                    </div>
-                    <p class="advice-text" id="adviceText">
-                        اضغط على الزر أدناه للحصول على نصيحة طبية
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <div class="advice-stats">
-                        <span><i class="fas fa-eye"></i> <span id="viewsCount">0</span></span>
-                        <span><i class="fas fa-heart"></i> <span id="likesCount">0</span></span>
-                    </div>
+                <div class="brand-text">
+                    <h1 class="brand-name">Synthelia</h1>
+                    <p class="brand-tagline">الذكاء الصحي المتطور</p>
                 </div>
             </div>
 
-            <!-- أزرار التحكم -->
-            <div class="control-buttons">
-                <button class="btn btn-primary" id="newAdviceBtn">
-                    <i class="fas fa-plus-circle"></i>
-                    نصيحة جديدة
-                </button>
-                <button class="btn btn-secondary" id="prevAdviceBtn">
-                    <i class="fas fa-arrow-right"></i>
-                    السابق
-                </button>
-            </div>
-
-            <!-- التحكم الصوتي -->
-            <div class="audio-controls">
-                <button class="audio-btn" id="playBtn">
-                    <i class="fas fa-play"></i>
-                </button>
-                <button class="audio-btn" id="pauseBtn">
-                    <i class="fas fa-pause"></i>
-                </button>
-                <button class="audio-btn" id="stopBtn">
-                    <i class="fas fa-stop"></i>
-                </button>
-                <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
-            </div>
-
-            <!-- الإحصائيات -->
-            <div class="stats">
-                <div class="stat-item">
-                    <i class="fas fa-bullseye"></i>
-                    <div>
-                        <h3 id="totalAdvice">0</h3>
-                        <p>نصائح</p>
-                    </div>
+            <!-- حالة النظام -->
+            <div class="system-status">
+                <div class="status-indicator">
+                    <div class="status-dot active"></div>
+                    <span>النظام نشط</span>
                 </div>
-                <div class="stat-item">
-                    <i class="fas fa-star"></i>
-                    <div>
-                        <h3 id="favoritesCount">0</h3>
-                        <p>المفضلة</p>
-                    </div>
+                <div class="time-display" id="liveTime">
+                    <i class="fas fa-clock"></i>
+                    <span>--:--</span>
                 </div>
             </div>
         </div>
+    </header>
+
+    <!-- القائمة الذكية (تظهر من اليسار) -->
+    <nav class="smart-navigation" id="smartNav">
+        <div class="nav-container">
+            <!-- رأس القائمة -->
+            <div class="nav-header">
+                <div class="user-profile">
+                    <div class="avatar">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="profile-info">
+                        <h3>مرحباً بك!</h3>
+                        <p>في نظام Synthelia</p>
+                    </div>
+                </div>
+                <button class="nav-close" id="navClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <!-- التحكم الصوتي المتقدم -->
+            <div class="audio-control-panel">
+                <h4><i class="fas fa-wave-square"></i> التحكم الصوتي</h4>
+                <div class="audio-buttons">
+                    <button class="audio-btn play-audio" id="audioPlay">
+                        <i class="fas fa-play"></i>
+                        <span>تشغيل</span>
+                    </button>
+                    <button class="audio-btn pause-audio" id="audioPause">
+                        <i class="fas fa-pause"></i>
+                        <span>إيقاف مؤقت</span>
+                    </button>
+                    <button class="audio-btn stop-audio" id="audioStop">
+                        <i class="fas fa-stop"></i>
+                        <span>إيقاف</span>
+                    </button>
+                </div>
+                <div class="volume-slider-container">
+                    <i class="fas fa-volume-down"></i>
+                    <input type="range" class="volume-slider" id="volumeSlider" 
+                           min="0" max="1" step="0.1" value="0.5">
+                    <i class="fas fa-volume-up"></i>
+                    <span class="volume-value" id="volumeValue">50%</span>
+                </div>
+                <div class="audio-status" id="audioStatus">
+                    <i class="fas fa-check-circle"></i>
+                    <span>جاهز</span>
+                </div>
+            </div>
+
+            <!-- المفضلة -->
+            <div class="favorites-panel">
+                <h4><i class="fas fa-star"></i> النصائح المفضلة</h4>
+                <div class="favorites-list" id="favoritesList">
+                    <!-- تعبأ ديناميكياً -->
+                </div>
+                <button class="clear-favorites" id="clearFavorites">
+                    <i class="fas fa-trash"></i>
+                    مسح الكل
+                </button>
+            </div>
+
+            <!-- الإعدادات -->
+            <div class="settings-panel">
+                <h4><i class="fas fa-cogs"></i> الإعدادات</h4>
+                <div class="settings-grid">
+                    <label class="setting-item">
+                        <input type="checkbox" id="autoPlayToggle" checked>
+                        <span class="switch"></span>
+                        <span class="setting-text">التشغيل التلقائي</span>
+                    </label>
+                    <label class="setting-item">
+                        <input type="checkbox" id="darkModeToggle" checked>
+                        <span class="switch"></span>
+                        <span class="setting-text">الوضع الليلي</span>
+                    </label>
+                    <label class="setting-item">
+                        <input type="checkbox" id="notificationsToggle" checked>
+                        <span class="switch"></span>
+                        <span class="setting-text">الإشعارات</span>
+                    </label>
+                    <label class="setting-item">
+                        <input type="checkbox" id="soundEffectsToggle" checked>
+                        <span class="switch"></span>
+                        <span class="setting-text">التأثيرات الصوتية</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- اللغة -->
+            <div class="language-panel">
+                <h4><i class="fas fa-globe"></i> اللغة</h4>
+                <div class="language-options">
+                    <button class="language-option active" data-lang="ar">
+                        <i class="fas fa-language"></i>
+                        <span>العربية</span>
+                        <i class="fas fa-check check-icon"></i>
+                    </button>
+                    <button class="language-option" data-lang="en">
+                        <i class="fas fa-language"></i>
+                        <span>English</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- روابط التواصل -->
+            <div class="contact-panel">
+                <a href="https://t.me/xbilm" target="_blank" class="contact-link">
+                    <i class="fab fa-telegram"></i>
+                    <span>الدعم الفني</span>
+                </a>
+                <button class="emergency-contact" id="emergencyBtn">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>اتصال طارئ</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="medical-dashboard">
+        <!-- قسم الترحيب -->
+        <section class="welcome-section">
+            <div class="welcome-container">
+                <div class="welcome-message">
+                    <h2 class="welcome-title">
+                        <span class="greeting">مرحباً بك في</span>
+                        <span class="brand-highlight">Synthelia</span>
+                    </h2>
+                    <p class="welcome-subtitle">
+                        نظام الذكاء الاصطناعي المتطور للرعاية الصحية والتوعية الطبية
+                    </p>
+                    
+                    <!-- شريط البحث الذكي -->
+                    <div class="search-container">
+                        <div class="search-box">
+                            <input type="text" id="medicalSearch" 
+                                   placeholder="ابحث عن نصيحة طبية أو موضوع صحي...">
+                            <button class="search-btn" id="searchBtn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                        <div class="search-suggestions" id="searchSuggestions">
+                            <!-- تعبأ ديناميكياً -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بطاقة الحالة الصحية -->
+                <div class="health-status-card">
+                    <div class="status-header">
+                        <i class="fas fa-heartbeat"></i>
+                        <h3>حالتك الصحية</h3>
+                    </div>
+                    <div class="status-body">
+                        <div class="health-score">
+                            <div class="score-circle">
+                                <div class="score-value" id="healthScore">85%</div>
+                                <div class="score-label">مؤشر الصحة</div>
+                            </div>
+                        </div>
+                        <div class="health-metrics">
+                            <div class="metric">
+                                <span class="metric-label">النشاط اليومي</span>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">جودة النوم</span>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">التغذية</span>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" style="width: 65%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- بطاقة النصيحة الرئيسية -->
+        <section class="main-advice-section">
+            <div class="advice-container">
+                <!-- رأس البطاقة -->
+                <div class="advice-header">
+                    <div class="advice-meta">
+                        <span class="category-badge" id="adviceCategory">
+                            <i class="fas fa-tag"></i>
+                            الصحة العامة
+                        </span>
+                        <span class="advice-id">النصيحة #<span id="adviceId">1</span></span>
+                    </div>
+                    <div class="advice-actions">
+                        <button class="action-btn favorite-btn" id="favoriteAdviceBtn" 
+                                title="إضافة إلى المفضلة">
+                            <i class="far fa-star"></i>
+                        </button>
+                        <button class="action-btn share-btn" id="shareAdviceBtn" 
+                                title="مشاركة النصيحة">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                        <button class="action-btn sound-btn" id="soundAdviceBtn" 
+                                title="استماع للنصيحة">
+                            <i class="fas fa-volume-up"></i>
+                        </button>
+                        <button class="action-btn copy-btn" id="copyAdviceBtn" 
+                                title="نسخ النصيحة">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- محتوى البطاقة -->
+                <div class="advice-body">
+                    <div class="advice-visual">
+                        <div class="visual-icon" id="adviceIcon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="visual-effects">
+                            <div class="pulse-effect"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="advice-content">
+                        <h3 class="advice-title" id="adviceTitle">نصيحة صحية اليوم</h3>
+                        <div class="advice-text-container">
+                            <p class="advice-text" id="adviceText">
+                                اضغط على زر "نصيحة جديدة" للحصول على أول نصيحة طبية من نظام Synthelia
+                            </p>
+                            <div class="advice-source">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>مصدر موثوق: <span id="adviceSource">منظمة الصحة العالمية</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- أزرار التنقل -->
+                <div class="advice-navigation">
+                    <button class="nav-btn prev-btn" id="prevAdviceBtn">
+                        <i class="fas fa-chevron-right"></i>
+                        <span>السابق</span>
+                    </button>
+                    
+                    <button class="main-action-btn" id="newAdviceBtn">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>نصيحة جديدة</span>
+                        <div class="btn-glow"></div>
+                    </button>
+                    
+                    <button class="nav-btn next-btn" id="nextAdviceBtn">
+                        <span>التالي</span>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                </div>
+
+                <!-- معلومات إضافية -->
+                <div class="advice-footer">
+                    <div class="advice-stats">
+                        <div class="stat">
+                            <i class="fas fa-eye"></i>
+                            <span>المشاهدات: <strong id="viewsCount">0</strong></span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-heart"></i>
+                            <span>الإعجابات: <strong id="likesCount">0</strong></span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>التاريخ: <strong id="adviceDate">اليوم</strong></span>
+                        </div>
+                    </div>
+                    <div class="progress-indicator">
+                        <div class="progress-label">
+                            <span>تقدمك اليومي</span>
+                            <span class="progress-percent" id="progressPercent">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم المميزات -->
+        <section class="features-section">
+            <h2 class="section-title">
+                <i class="fas fa-gem"></i>
+                لماذا تختار Synthelia؟
+            </h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>ذكاء اصطناعي</h3>
+                    <p>نظام ذكي يتعلم من تفضيلاتك الصحية</p>
+                    <div class="feature-badge">AI</div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>موثوقية طبية</h3>
+                    <p>معلومات من مصادر طبية معتمدة عالمياً</p>
+                    <div class="feature-badge">موثوق</div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>سرعة فائقة</h3>
+                    <p>يعمل بسلاسة على جميع الأجهزة</p>
+                    <div class="feature-badge">سريع</div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>تتبع الصحة</h3>
+                    <p>إحصائيات مفصلة عن حالتك الصحية</p>
+                    <div class="feature-badge">متابعة</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم الإحصائيات -->
+        <section class="stats-section">
+            <div class="stats-container">
+                <h2 class="stats-title">
+                    <i class="fas fa-chart-bar"></i>
+                    إحصائياتك الصحية
+                </h2>
+                
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="totalAdvices">0</h3>
+                            <p>نصائح شاهدتها</p>
+                        </div>
+                        <div class="stat-trend up">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>12%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="favoritesCount">0</h3>
+                            <p>نصائح مفضلة</p>
+                        </div>
+                        <div class="stat-trend up">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>8%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="streakCount">0</h3>
+                            <p>أيام متتالية</p>
+                        </div>
+                        <div class="stat-trend up">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>15%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="achievementsCount">0</h3>
+                            <p>إنجازات محققة</p>
+                        </div>
+                        <div class="stat-trend up">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>5%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم المدونة الطبية -->
+        <section class="blog-section">
+            <div class="blog-container">
+                <h2 class="section-title">
+                    <i class="fas fa-newspaper"></i>
+                    أحدث المقالات الطبية
+                </h2>
+                
+                <div class="articles-grid">
+                    <article class="article-card">
+                        <div class="article-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-category">صحة القلب</span>
+                            <h3>طرق الوقاية من أمراض القلب</h3>
+                            <p>تعرف على أهم النصائح للحفاظ على صحة قلبك</p>
+                            <a href="#" class="read-more">
+                                اقرأ المزيد
+                                <i class="fas fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        <div class="article-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-apple-alt"></i>
+                            </div>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-category">التغذية</span>
+                            <h3>الأغذية المفيدة للجهاز المناعي</h3>
+                            <p>تعزيز مناعتك من خلال التغذية السليمة</p>
+                            <a href="#" class="read-more">
+                                اقرأ المزيد
+                                <i class="fas fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        <div class="article-image">
+                            <div class="image-placeholder">
+                                <i class="fas fa-bed"></i>
+                            </div>
+                        </div>
+                        <div class="article-content">
+                            <span class="article-category">النوم</span>
+                            <h3>أسرار النوم الصحي</h3>
+                            <p>كيف تحصل على نوم هادئ ومريح</p>
+                            <a href="#" class="read-more">
+                                اقرأ المزيد
+                                <i class="fas fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- الفوتر -->
-    <footer class="footer">
-        <div class="container">
-            <p>© 2023 Synova. نصائح طبية تثقيفية.</p>
-            <p>تم التطوير بـ ❤️ بواسطة Caesar | 
-                <a href="https://t.me/xbilm" target="_blank">
-                    <i class="fab fa-telegram"></i> تواصل معنا
-                </a>
-            </p>
+    <footer class="medical-footer">
+        <div class="footer-container">
+            <!-- معلومات الشركة -->
+            <div class="footer-section company-info">
+                <div class="footer-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h3>Synthelia</h3>
+                        <p>الذكاء الصحي المتطور</p>
+                    </div>
+                </div>
+                <p class="company-description">
+                    منصة رائدة في تقديم حلول الرعاية الصحية الذكية باستخدام أحدث تقنيات الذكاء الاصطناعي
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link" title="تويتر">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link" title="لينكد إن">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="social-link" title="يوتيوب">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://t.me/xbilm" target="_blank" class="social-link" title="تيليجرام">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- روابط سريعة -->
+            <div class="footer-section quick-links">
+                <h4>روابط سريعة</h4>
+                <ul class="footer-menu">
+                    <li><a href="#"><i class="fas fa-chevron-left"></i> النصائح اليومية</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-left"></i> المكتبة الطبية</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-left"></i> المدونة الصحية</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-left"></i> تواصل مع أطباء</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-left"></i> الأسئلة الشائعة</a></li>
+                </ul>
+            </div>
+
+            <!-- معلومات الاتصال -->
+            <div class="footer-section contact-info">
+                <h4>اتصل بنا</h4>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>support@synthelia.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+966 50 123 4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>الرياض، المملكة العربية السعودية</span>
+                    </div>
+                </div>
+                <button class="contact-btn" id="contactUsBtn">
+                    <i class="fas fa-comment-alt"></i>
+                    تواصل معنا
+                </button>
+            </div>
+
+            <!-- النشرة البريدية -->
+            <div class="footer-section newsletter">
+                <h4>النشرة البريدية</h4>
+                <p>اشترك للحصول على آخر النصائح الطبية</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="بريدك الإلكتروني" required>
+                    <button type="submit">
+                        <i class="fas fa-paper-plane"></i>
+                        اشتراك
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- حقوق النشر -->
+        <div class="footer-bottom">
+            <div class="copyright">
+                <p>© 2023 Synthelia. جميع الحقوق محفوظة.</p>
+                <p class="disclaimer">
+                    هذا الموقع لأغراض تثقيفية وتوعوية فقط ولا يغني عن استشارة الطبيب المتخصص.
+                </p>
+            </div>
+            <div class="footer-tech">
+                <span>مبني بتقنيات:</span>
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Netlify</span>
+            </div>
         </div>
     </footer>
 
-    <!-- الجافاسكريبت -->
+    <!-- نظام الإشعارات -->
+    <div class="notification-system" id="notificationSystem"></div>
+
+    <!-- زر العودة للأعلى -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- مكتبات إضافية -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    
+    <!-- الملف الرئيسي -->
     <script src="script.js"></script>
 </body>
 </html>
