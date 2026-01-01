@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synova - نصائح طبية ذكية</title>
+    
+    <!-- روابط التصميم -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- أيقونة الموقع -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚕️</text></svg>">
+    
+    <!-- Meta Tags لمشاركة أفضل -->
+    <meta name="description" content="موقع نصائح طبية ذكي يقدم معلومات صحية موثوقة بتقنيات حديثة">
+    <meta property="og:title" content="Synova - نصائح طبية ذكية">
+    <meta property="og:description" content="احصل على نصائح طبية يومية ومعلومات صحية موثوقة">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&h=630&fit=crop">
+    <meta property="og:url" content="https://synova.vercel.app">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+    <!-- خلفية متحركة متقدمة -->
+    <div class="background-animation">
+        <div class="particles" id="particles-js"></div>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+    </div>
+
+    <!-- شريط التنقل الذكي -->
+    <nav class="smart-nav">
+        <div class="nav-container">
+            <!-- اللوجو -->
+            <div class="logo-container">
+                <div class="logo-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Synova</h1>
+                    <span class="logo-subtitle">نصائح طبية ذكية</span>
+                </div>
+            </div>
+
+            <!-- إحصائيات مباشرة -->
+            <div class="live-stats">
+                <div class="stat-item">
+                    <i class="fas fa-bullseye"></i>
+                    <span>نصائح اليوم: <span id="todayTips">0</span></span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-star"></i>
+                    <span>المفضلة: <span id="favCount">0</span></span>
+                </div>
+            </div>
+
+            <!-- زر القائمة الذكي -->
+            <button class="smart-menu-btn" id="smartMenuBtn">
+                <span class="menu-icon">
+                    <i class="fas fa-bars"></i>
+                </span>
+                <span class="menu-text">القائمة</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- القائمة الذكية -->
+    <div class="smart-menu-overlay" id="menuOverlay">
+        <div class="menu-content">
+            <div class="menu-header">
+                <h2><i class="fas fa-sliders-h"></i> التحكم</h2>
+                <button class="close-menu" id="closeMenuBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="menu-sections">
+                <!-- قسم الإعدادات -->
+                <div class="menu-section">
+                    <h3><i class="fas fa-cog"></i> الإعدادات</h3>
+                    <div class="setting-item">
+                        <span><i class="fas fa-language"></i> اللغة</span>
+                        <div class="toggle-switch">
+                            <button class="lang-btn active" data-lang="ar">العربية</button>
+                            <button class="lang-btn" data-lang="en">English</button>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <span><i class="fas fa-palette"></i> السمة</span>
+                        <div class="theme-switch">
+                            <button class="theme-btn" data-theme="light">
+                                <i class="fas fa-sun"></i> فاتحة
+                            </button>
+                            <button class="theme-btn active" data-theme="dark">
+                                <i class="fas fa-moon"></i> داكنة
+                            </button>
+                            <button class="theme-btn" data-theme="blue">
+                                <i class="fas fa-droplet"></i> زرقاء
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- قسم المفضلة -->
+                <div class="menu-section">
+                    <h3><i class="fas fa-star"></i> المفضلة</h3>
+                    <div class="favorites-list" id="favoritesList">
+                        <!-- سيتم تعبئتها بالجافاسكريبت -->
+                    </div>
+                    <button class="clear-fav-btn" id="clearFavBtn">
+                        <i class="fas fa-trash"></i> مسح المفضلة
+                    </button>
+                </div>
+
+                <!-- قسم المعلومات -->
+                <div class="menu-section">
+                    <h3><i class="fas fa-info-circle"></i> معلومات</h3>
+                    <div class="info-box">
+                        <p><i class="fas fa-shield-alt"></i> جميع النصائح من مصادر طبية موثوقة</p>
+                        <p><i class="fas fa-exclamation-triangle"></i> لا تغني عن استشارة الطبيب</p>
+                        <p><i class="fas fa-history"></i> آخر تحديث: <span id="lastUpdate">اليوم</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- روابط التواصل -->
+            <div class="menu-footer">
+                <a href="https://t.me/xbilm" target="_blank" class="social-link telegram">
+                    <i class="fab fa-telegram"></i> تواصل معنا
+                </a>
+                <a href="#" class="social-link share-app" id="shareAppBtn">
+                    <i class="fas fa-share-alt"></i> شارك التطبيق
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-content">
+        <!-- قسم الترحيب -->
+        <section class="hero-section">
+            <div class="hero-content animate__animated animate__fadeInUp">
+                <div class="welcome-message">
+                    <h2 class="greeting" id="greetingText">مرحباً بك في سينوفا! 👋</h2>
+                    <p class="tagline" id="taglineText">نقدم لك نصائح طبية ذكية لصحة أفضل</p>
+                </div>
+                
+                <!-- بطاقة الوقت الحقيقي -->
+                <div class="time-card">
+                    <div class="time-display">
+                        <i class="fas fa-clock"></i>
+                        <span id="currentTime">--:--</span>
+                    </div>
+                    <div class="date-display">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span id="currentDate">--/--/----</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- بطاقة النصيحة الرئيسية -->
+        <section class="advice-section">
+            <div class="advice-container">
+                <!-- بطاقة النصيحة -->
+                <div class="advice-card animate__animated" id="adviceCard">
+                    <!-- رأس البطاقة -->
+                    <div class="card-header">
+                        <div class="category-tag" id="adviceCategory">
+                            <i class="fas fa-tag"></i>
+                            <span>صحة عامة</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="action-btn favorite-btn" id="favoriteBtn" title="أضف إلى المفضلة">
+                                <i class="far fa-star"></i>
+                            </button>
+                            <button class="action-btn copy-btn" id="copyBtn" title="نسخ النصيحة">
+                                <i class="far fa-copy"></i>
+                            </button>
+                            <button class="action-btn sound-btn" id="soundBtn" title="استماع للنصيحة">
+                                <i class="fas fa-volume-up"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- محتوى البطاقة -->
+                    <div class="card-body">
+                        <div class="advice-icon">
+                            <i class="fas fa-lightbulb" id="adviceIcon"></i>
+                        </div>
+                        <div class="advice-content">
+                            <h3 class="advice-title" id="adviceTitle">نصيحة اليوم</h3>
+                            <p class="advice-text" id="adviceText">
+                                اضغط على زر "نصيحة جديدة" للحصول على أول نصيحة طبية
+                            </p>
+                            <div class="advice-source">
+                                <i class="fas fa-book-medical"></i>
+                                <span>مصدر موثوق: منظمة الصحة العالمية</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- تذييل البطاقة -->
+                    <div class="card-footer">
+                        <div class="advice-meta">
+                            <span class="meta-item">
+                                <i class="fas fa-heart"></i>
+                                <span id="likesCount">0</span> إعجاب
+                            </span>
+                            <span class="meta-item">
+                                <i class="fas fa-eye"></i>
+                                <span id="viewsCount">0</span> مشاهدة
+                            </span>
+                            <span class="meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span id="adviceDate">اليوم</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- أزرار التحكم -->
+                <div class="control-buttons">
+                    <button class="control-btn primary-btn" id="newAdviceBtn">
+                        <i class="fas fa-magic"></i>
+                        <span>نصيحة جديدة</span>
+                    </button>
+                    
+                    <button class="control-btn secondary-btn" id="autoAdviceBtn">
+                        <i class="fas fa-play"></i>
+                        <span>تشغيل تلقائي</span>
+                    </button>
+                    
+                    <button class="control-btn tertiary-btn" id="historyBtn">
+                        <i class="fas fa-history"></i>
+                        <span>السابق</span>
+                    </button>
+                </div>
+
+                <!-- شريط التقدم -->
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>التقدم اليومي</span>
+                        <span id="progressPercent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم المميزات -->
+        <section class="features-section">
+            <h2 class="section-title"><i class="fas fa-gem"></i> مميزات سينوفا</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>ذكاء اصطناعي</h3>
+                    <p>نصائح ذكية تتكيف مع احتياجاتك</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>تطبيق سريع</h3>
+                    <p>يعمل بدون انترنت بعد التحميل</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>معلومات آمنة</h3>
+                    <p>بياناتك تبقى على جهازك فقط</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>تحديث دائم</h3>
+                    <p>نضيف نصائح جديدة يومياً</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم الإحصائيات -->
+        <section class="stats-section">
+            <div class="stats-container">
+                <h2><i class="fas fa-chart-line"></i> إحصائياتك</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-bullseye"></i>
+                        <h3 id="totalTips">0</h3>
+                        <p>نصائح شاهدتها</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-star"></i>
+                        <h3 id="totalFavs">0</h3>
+                        <p>نصائح مفضلة</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-fire"></i>
+                        <h3 id="streakDays">0</h3>
+                        <p>أيام متتالية</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-trophy"></i>
+                        <h3 id="achievements">0</h3>
+                        <p>إنجازات</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- التذييل -->
+    <footer class="smart-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-heartbeat"></i> Synova</h3>
+                <p>نصائح طبية ذكية لصحة أفضل وحياة أطول</p>
+                <div class="footer-links">
+                    <a href="#"><i class="fas fa-question-circle"></i> المساعدة</a>
+                    <a href="#"><i class="fas fa-shield-alt"></i> الخصوصية</a>
+                    <a href="#"><i class="fas fa-file-contract"></i> الشروط</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3><i class="fas fa-hands-helping"></i> دعم</h3>
+                <p>للدعم والاستفسارات:</p>
+                <a href="https://t.me/xbilm" target="_blank" class="support-link">
+                    <i class="fab fa-telegram"></i> تواصل على Telegram
+                </a>
+            </div>
+            
+            <div class="footer-section">
+                <h3><i class="fas fa-code"></i> المطور</h3>
+                <p>تم التطوير بـ ❤️ بواسطة Caesar</p>
+                <div class="developer-tools">
+                    <button class="dev-btn" id="devToolsBtn">
+                        <i class="fas fa-tools"></i> أدوات المطور
+                    </button>
+                    <button class="dev-btn" id="resetDataBtn">
+                        <i class="fas fa-redo"></i> إعادة الضبط
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2023 Synova. جميع الحقوق محفوظة. هذا الموقع لأغراض تثقيفية فقط.</p>
+            <div class="tech-stack">
+                <span>مبني بـ:</span>
+                <i class="fab fa-html5" title="HTML5"></i>
+                <i class="fab fa-css3-alt" title="CSS3"></i>
+                <i class="fab fa-js" title="JavaScript"></i>
+                <i class="fab fa-github" title="GitHub"></i>
+                <i class="fas fa-cloud" title="Vercel"></i>
+            </div>
+        </div>
+    </footer>
+
+    <!-- نافذة الإشعارات -->
+    <div class="notification-container" id="notificationContainer"></div>
+
+    <!-- زر العودة للأعلى -->
+    <button class="back-to-top" id="backToTopBtn">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- مكتبات إضافية -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- الملف الرئيسي -->
+    <script src="script.js"></script>
+</body>
+</html>
